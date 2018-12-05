@@ -1,1 +1,53 @@
-test git quick start demo
+'''
+-Add new movies
+-See movies
+-Find a movie
+-Stop running the program
+
+Task:
+[]: Where to store movies
+[]: What is the format of a movie?
+[]: Show the user the main interface and get their input
+[]: Allow users to add movies
+[]: show all their movies
+[]: find a movie
+[x]: Stop running the program when they type 'q'
+'''
+
+movies = []#Empty list - going store all movies here.
+
+'''
+movies ={
+    'title':..(str),
+    'genre':..(str),
+    'year':..(int)
+    }
+'''
+def menu():
+    user_input =input("Enter 'a' to add a movie, 'l' to view movie list, 'f' to find a movie, 'q' to quit: ")
+    while not 'q' == user_input:
+             if user_input == 'a':
+                add_movie()
+             elif user_input == 'l':
+                show_movies()
+             elif user_input == 'f':
+                find_movies()
+             else:
+                print("I'm sorry, Can you please try again. ")
+             user_input = input("Enter 'a' to add a movie, 'l' to view movie list, 'f' to find a movie, 'q' to quit: ")
+
+def add_movie():
+    title = input("Enter movie title: ")
+    genre = input('Enter genre: ')
+    year = int(input("Enter movie year: "))
+
+    movies.append({
+        'title': title,
+        'genre': genre,
+        'year': year
+    })
+
+
+menu()
+
+print(movies)
