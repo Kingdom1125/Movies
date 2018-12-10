@@ -14,7 +14,7 @@ Task:
 [x]: Stop running the program when they type 'q'
 '''
 
-movies = []#Empty list - going store all movies here.
+movies = []  # Empty list - going store all movies here.
 
 '''
 movies ={
@@ -23,18 +23,21 @@ movies ={
     'year':..(int)
     }
 '''
+
+
 def menu():
-    user_input =input("Enter 'a' to add a movie, 'l' to view movie list, 'f' to find a movie, 'q' to quit: ")
+    user_input = input("Enter 'a' to add a movie, 'l' to view movie list, 'f' to find a movie, 'q' to quit: ")
     while not 'q' == user_input:
-             if user_input == 'a':
-                add_movie()
-             elif user_input == 'l':
-                show_movies()
-             elif user_input == 'f':
-                find_movies()
-             else:
-                print("I'm sorry, Can you please try again. ")
-             user_input = input("Enter 'a' to add a movie, 'l' to view movie list, 'f' to find a movie, 'q' to quit: ")
+        if user_input == 'a':
+            add_movie()
+        elif user_input == 'l':
+            show_movies()
+        elif user_input == 'f':
+            find_movies()
+        else:
+            print("I'm sorry, Can you please try again. ")
+        user_input = input("\nEnter 'a' to add a movie, 'l' to view movie list, 'f' to find a movie, 'q' to quit: ")
+
 
 def add_movie():
     title = input("Enter movie title: ")
@@ -48,6 +51,27 @@ def add_movie():
     })
 
 
-menu()
+def show_movies():
+    for movie in movies:
+      movie_detail(movie)
 
-print(movies)
+
+def movie_detail(movie):
+    print(f"Title:{movie['title']}")
+    print(f"Genre: {movie['genre']}")
+    print(f"Year: {movie['year']}")
+
+
+def find_movies():
+    find_by = input("How would you like to conduct your search?  ")
+    look_by = input("What are you looking for? ")
+
+    found = []
+
+    for movie in movies:
+        if movie[find_by] == look_by:
+            found.append(movie)
+    return found
+
+
+menu()
